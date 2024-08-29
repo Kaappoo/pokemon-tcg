@@ -1,0 +1,52 @@
+.main{
+    height: 10vh;
+    background-color: #3A1078;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    .logo{
+        color: #F7F7F8;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        img{
+            height: 8vh;
+        }
+    }
+
+    nav{
+        display: flex;
+        // gap: 1rem;
+
+        span{
+            font-size: 20px;
+            font-weight: 500;
+            color: #F7F7F8;
+            padding: 0px 0.4rem;
+            &:nth-child(even){
+                border: #FFF solid 1px;
+                border-top: none;
+                border-bottom: none;
+            }
+        }
+
+    }
+
+    .search{
+        display: flex;
+        height: 35px;
+        background-color: #FFF;
+        align-items: center;
+        border-radius: 10px;
+        padding: 0.1rem 0.3rem;
+
+        input{
+            outline: none;
+            border: none;
+        }
+    }
+}
