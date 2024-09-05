@@ -1,7 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CardsService } from '../../shared/services/cards.service';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
-import { Carousel } from 'ngx-carousel-ease/lib/carousel';
 import { CarouselComponent } from 'ngx-carousel-ease';
 
 @Component({
@@ -9,7 +7,8 @@ import { CarouselComponent } from 'ngx-carousel-ease';
   standalone: true,
   imports: [CarouselComponent ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeComponent {
 

@@ -1,40 +1,26 @@
 <div class="main">
-  <div class="banner">
-    Novas Cartas!
-  </div>
+  <div class="banner">Novas Cartas!</div>
   <div class="carousel">
-    <carousel [dots]="false" [counter]="false" [slideToShow]="4" [arrows]="false">
-        <div class="carousel-slide">
-          <div class="card" (click)="goToCard(recentCards[0])">
-            <img [src]="recentCards[0].images.small" alt="" srcset="" />
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="card" (click)="goToCard(recentCards[1])">
-            <img [src]="recentCards[1].images.small" alt="" srcset="" />
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="card" (click)="goToCard(recentCards[2])">
-            <img [src]="recentCards[2].images.small" alt="" srcset="" />
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="card" (click)="goToCard(recentCards[3])">
-            <img [src]="recentCards[3].images.small" alt="" srcset="" />
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="card" (click)="goToCard(recentCards[4])">
-            <img [src]="recentCards[4].images.small" alt="" srcset="" />
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="card" (click)="goToCard(recentCards[5])">
-            <img [src]="cards[5].images.small" alt="" srcset="" />
-          </div>
-        </div>
-    </carousel>
+    <swiper-container class="swiper" slides-per-view="5" centered-slides="true" centered-slides-bounds="true">
+      <swiper-slide class="card" (click)="goToCard(recentCards[0])">
+        <img [src]="recentCards[0].images.small" alt="" srcset="" />
+      </swiper-slide>
+      <swiper-slide class="card" (click)="goToCard(recentCards[1])">
+        <img [src]="recentCards[1].images.small" alt="" srcset="" />
+      </swiper-slide>
+      <swiper-slide class="card" (click)="goToCard(recentCards[2])">
+        <img [src]="recentCards[2].images.small" alt="" srcset="" />
+      </swiper-slide>
+      <swiper-slide class="card" (click)="goToCard(recentCards[3])">
+        <img [src]="recentCards[3].images.small" alt="" srcset="" />
+      </swiper-slide>
+      <swiper-slide class="card" (click)="goToCard(recentCards[4])">
+        <img [src]="recentCards[3].images.small" alt="" srcset="" />
+      </swiper-slide>
+      <swiper-slide class="card" (click)="goToCard(recentCards[5])">
+        <img [src]="recentCards[3].images.small" alt="" srcset="" />
+      </swiper-slide>
+    </swiper-container>
   </div>
   <div class="main-content">
     <div class="featured-cards">
@@ -63,8 +49,5 @@
         }
       </div>
     </div>
-
   </div>
-
-
 </div>

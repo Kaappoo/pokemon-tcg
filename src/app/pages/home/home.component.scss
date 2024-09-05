@@ -18,6 +18,13 @@
     margin-left: 6%;
     position: absolute;
     top: 10rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .swiper{
+      width: 100vw;
+    }
   }
 
   .main-content {
