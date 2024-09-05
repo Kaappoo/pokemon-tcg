@@ -1,28 +1,62 @@
 <div class="main">
   <div class="banner">Novas Cartas!</div>
-  <div class="carousel">
-    <swiper-container class="swiper" slides-per-view="5" centered-slides="true" centered-slides-bounds="true">
-      <swiper-slide class="card" (click)="goToCard(recentCards[0])">
-        <img [src]="recentCards[0].images.small" alt="" srcset="" />
-      </swiper-slide>
-      <swiper-slide class="card" (click)="goToCard(recentCards[1])">
-        <img [src]="recentCards[1].images.small" alt="" srcset="" />
-      </swiper-slide>
-      <swiper-slide class="card" (click)="goToCard(recentCards[2])">
-        <img [src]="recentCards[2].images.small" alt="" srcset="" />
-      </swiper-slide>
-      <swiper-slide class="card" (click)="goToCard(recentCards[3])">
-        <img [src]="recentCards[3].images.small" alt="" srcset="" />
-      </swiper-slide>
-      <swiper-slide class="card" (click)="goToCard(recentCards[4])">
-        <img [src]="recentCards[3].images.small" alt="" srcset="" />
-      </swiper-slide>
-      <swiper-slide class="card" (click)="goToCard(recentCards[5])">
-        <img [src]="recentCards[3].images.small" alt="" srcset="" />
-      </swiper-slide>
-    </swiper-container>
+  <div class="featured">
+    <!-- <div class="card">
+      <img [src]="recentCards[0].images.small" alt="" srcset="" />
+    </div>
+    <div class="card">
+      <img [src]="recentCards[1].images.small" alt="" srcset="" />
+    </div>
+    <div class="card">
+      <img [src]="recentCards[2].images.small" alt="" srcset="" />
+    </div> -->
+    <div class="carousel">
+
+      <swiper-container class="swiper" slides-per-view="3" centered-slides="false" centered-slides-bounds="true" round-lengths="true" loop="true" autoplay="true" delay="2000">
+          <swiper-slide class="card" (click)="goToCard(recentCards[0])">
+            <img [src]="recentCards[0].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[1])">
+            <img [src]="recentCards[1].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[2])">
+            <img [src]="recentCards[2].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[3])">
+            <img [src]="recentCards[3].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[4])">
+            <img [src]="recentCards[4].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[5])">
+            <img [src]="recentCards[5].images.small" alt="" srcset="" />
+          </swiper-slide>
+      </swiper-container>
+    </div>
   </div>
   <div class="main-content">
+    <div class="carousel">
+      <swiper-container class="swiper" slides-per-view="5">
+        <swiper-slide class="card" (click)="goToCard(recentCards[0])">
+          <img [src]="recentCards[0].images.small" alt="" srcset="" />
+        </swiper-slide>
+        <swiper-slide class="card" (click)="goToCard(recentCards[1])">
+          <img [src]="recentCards[1].images.small" alt="" srcset="" />
+        </swiper-slide>
+        <swiper-slide class="card" (click)="goToCard(recentCards[2])">
+          <img [src]="recentCards[2].images.small" alt="" srcset="" />
+        </swiper-slide>
+        <swiper-slide class="card" (click)="goToCard(recentCards[3])">
+          <img [src]="recentCards[3].images.small" alt="" srcset="" />
+        </swiper-slide>
+        <swiper-slide class="card" (click)="goToCard(recentCards[4])">
+          <img [src]="recentCards[4].images.small" alt="" srcset="" />
+        </swiper-slide>
+        <swiper-slide class="card" (click)="goToCard(recentCards[5])">
+          <img [src]="recentCards[5].images.small" alt="" srcset="" />
+        </swiper-slide>
+      </swiper-container>
+    </div>
     <div class="featured-cards">
       <div class="section-title">
         <h1>cartas!!!</h1>
