@@ -1,42 +1,16 @@
 <div class="main">
-  <div class="banner">Novas Cartas!</div>
+  <div class="banner">New Cards!</div>
   <div class="featured">
-    <!-- <div class="card">
-      <img [src]="recentCards[0].images.small" alt="" srcset="" />
-    </div>
-    <div class="card">
-      <img [src]="recentCards[1].images.small" alt="" srcset="" />
-    </div>
-    <div class="card">
-      <img [src]="recentCards[2].images.small" alt="" srcset="" />
-    </div> -->
     <div class="carousel">
-
-      <swiper-container class="swiper" slides-per-view="3" centered-slides="false" centered-slides-bounds="true" round-lengths="true" loop="true" autoplay="true" delay="2000">
-          <swiper-slide class="card" (click)="goToCard(recentCards[0])">
-            <img [src]="recentCards[0].images.small" alt="" srcset="" />
-          </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[1])">
-            <img [src]="recentCards[1].images.small" alt="" srcset="" />
-          </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[2])">
-            <img [src]="recentCards[2].images.small" alt="" srcset="" />
-          </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[3])">
-            <img [src]="recentCards[3].images.small" alt="" srcset="" />
-          </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[4])">
-            <img [src]="recentCards[4].images.small" alt="" srcset="" />
-          </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[5])">
-            <img [src]="recentCards[5].images.small" alt="" srcset="" />
-          </swiper-slide>
-      </swiper-container>
-    </div>
-  </div>
-  <div class="main-content">
-    <div class="carousel">
-      <swiper-container class="swiper" slides-per-view="5">
+      <swiper-container
+        class="swiper"
+        slides-per-view="3"
+        centered-slides="false"
+        round-lengths="true"
+        loop="true"
+        autoplay="true"
+        delay="2000"
+        height="400">
         <swiper-slide class="card" (click)="goToCard(recentCards[0])">
           <img [src]="recentCards[0].images.small" alt="" srcset="" />
         </swiper-slide>
@@ -57,30 +31,115 @@
         </swiper-slide>
       </swiper-container>
     </div>
-    <div class="featured-cards">
-      <div class="section-title">
-        <h1>cartas!!!</h1>
+    <div class="cta">
+      <button>See all cards</button>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="section">
+      <div class="section-content">
+        <h1>New Releases!</h1>
+        <span
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum
+          aliquam urna sed posuere. Phasellus tellus sem, vestibulum nec purus
+          in, lobortis pulvinar lectus. Cras aliquam augue mi, vitae ultrices
+          ligula mollis nec. Duis pulvinar orci vitae suscipit gravida. Etiam
+          neque velit, malesuada sit amet auctor in, efficitur a enim.</span
+        >
+        <button>CHECK OUT</button>
       </div>
-      <div class="cards">
-        @for (card of cards; track $index) {
-        <div class="card">
-          <img [src]="card.images.small" alt="" srcset="" />
-        </div>
-        }
+      <div class="section-image">
+        <img
+          src="https://assetsio.gnwcdn.com/pokemon_tcg_ex_raidons_preview.png?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
+          alt=""
+        />
       </div>
     </div>
-    <div class="recent-cards">
-      <div class="section-title">
-        <h1>cartas novas!!</h1>
-        <span>essas sao novas em o yes</span>
-      </div>
-      <div class="cards">
-        @for (card of recentCards; track $index) {
-        <div class="card">
+
+    <div class="slider">
+      <swiper-container
+        class="swiper small"
+        slides-per-view="5"
+        loop="true"
+        autoplay="true"
+        delay="2000">
+        @for (card of recentCards; track $index) { @if ($index > 4) {
+        <swiper-slide class="card small" (click)="goToCard(card)">
           <img [src]="card.images.small" alt="" srcset="" />
-          <!-- <h3>{{card.name}}</h3> -->
+        </swiper-slide>
+        } }
+      </swiper-container>
+    </div>
+
+    <div class="section reverse">
+      <div class="section-content">
+        <h1>Expansions!</h1>
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum
+          aliquam urna sed posuere. Phasellus tellus sem, vestibulum nec purus
+          in, lobortis pulvinar lectus. Cras aliquam augue mi, vitae ultrices
+          ligula mollis nec. Duis pulvinar orci vitae suscipit gravida. Etiam
+          neque velit, malesuada sit amet auctor in, efficitur a enim.
+        </span>
+        <button>CHECK OUT</button>
+      </div>
+      <div class="section-image">
+        <img
+          src="https://www.pokemon.com/static-assets/content-assets/cms2/img/attend-events/_tiles/2021/tcg-rotation/tcg-2021-rotation-169-en.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="slider-title">
+      <h2>Most expensive cards</h2>
+    </div>
+    <div class="slider">
+      <swiper-container
+        class="swiper small"
+        slides-per-view="5"
+        loop="true"
+        centered-slides="true"
+        centered-slides-bounds="true"
+        autoplay="true"
+        delay="2000">
+        @for (card of expensiveCards; track $index) { @if ($index > 4) {
+        <swiper-slide class="card small" (click)="goToCard(card)">
+          <img [src]="card.images.small" alt="" srcset="" />
+        </swiper-slide>
+        } }
+      </swiper-container>
+    </div>
+    
+    <div class="select-pokemon">
+      <h2>Popular pokemon</h2>
+      <div class="pokemon-buttons">
+        <div class="collumn">
+          <div class="pokemon charizard">
+            <span>charizard</span>
+          </div>
         </div>
-        }
+        <div class="collumn">
+          <div class="pokemon pikachu">
+            <span>pikachu</span>
+          </div>
+          <div class="pokemon eevee">
+            <span>eevee</span>
+          </div>
+        </div>
+        <div class="collumn">
+          <div class="pokemon snorlax">
+            <span>snorlax</span>
+          </div>
+        </div>
+        <div class="collumn">
+          <div class="pokemon mew">
+            <span>mew</span>
+          </div>
+          <div class="pokemon gengar">
+            <span>gengar</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

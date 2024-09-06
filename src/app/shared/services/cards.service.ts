@@ -18,5 +18,9 @@ export class CardsService {
   listNewCards(pageSize: number){
     return this.http.get(`${environment.api.pokemontcg.uri}/cards?pageSize=${pageSize}&orderBy=-set.releaseDate&q=supertype:pokemon`, {headers: this.header});
   }
+
+  listExpensiveCards(pageSize: number){
+    return this.http.get(`${environment.api.pokemontcg.uri}/cards?pageSize=${pageSize}&orderBy=-cardmarket.prices.averageSellPrice&q=supertype:pokemon`, {headers: this.header});
+  }
   
 }

@@ -14,11 +14,13 @@ export class HomeComponent {
 
   private cardsService = inject(CardsService);
   cards: any[] =[];
-  recentCards: any[] =[]
+  recentCards: any[] =[];
+  expensiveCards: any[] =[];
 
   ngOnInit(){
     this.getCards();
     this.getNewCards();
+    this.getExpensiveCards();
   }
 
   getCards(){
@@ -29,8 +31,14 @@ export class HomeComponent {
   }
 
   getNewCards(){
-    this.cardsService.listNewCards(10).subscribe((res: any) => {
+    this.cardsService.listNewCards(20).subscribe((res: any) => {
       this.recentCards = res.data;
+    })
+  }
+
+  getExpensiveCards(){
+    this.cardsService.listExpensiveCards(15).subscribe((res: any) => {
+      this.expensiveCards = res.data;
     })
   }
 
