@@ -1,1 +1,12 @@
 <p>cards works!</p>
+
+@for (card of cards; track $index) {
+    <h3>{{card.name}}</h3>
+}
+
+<p-paginator 
+    (onPageChange)="onPageChange($event)" 
+    [first]="request.first"
+    [rows]="request.rows" 
+    [totalRecords]="120" 
+    [rowsPerPageOptions]="[10, 20, 30]" />
