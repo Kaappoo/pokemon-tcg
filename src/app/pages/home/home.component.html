@@ -2,37 +2,40 @@
   <div class="banner">New Cards!</div>
   <div class="featured">
     <div class="carousel">
-      <swiper-container
-        class="swiper"
-        slides-per-view="3"
-        centered-slides="false"
-        round-lengths="true"
-        loop="true"
-        autoplay="true"
-        delay="2000"
-        height="400">
-        <swiper-slide class="card" (click)="goToCard(recentCards[0])">
-          <img [src]="recentCards[0].images.small" alt="" srcset="" />
-        </swiper-slide>
-        <swiper-slide class="card" (click)="goToCard(recentCards[1])">
-          <img [src]="recentCards[1].images.small" alt="" srcset="" />
-        </swiper-slide>
-        <swiper-slide class="card" (click)="goToCard(recentCards[2])">
-          <img [src]="recentCards[2].images.small" alt="" srcset="" />
-        </swiper-slide>
-        <swiper-slide class="card" (click)="goToCard(recentCards[3])">
-          <img [src]="recentCards[3].images.small" alt="" srcset="" />
-        </swiper-slide>
-        <swiper-slide class="card" (click)="goToCard(recentCards[4])">
-          <img [src]="recentCards[4].images.small" alt="" srcset="" />
-        </swiper-slide>
-        <swiper-slide class="card" (click)="goToCard(recentCards[5])">
-          <img [src]="recentCards[5].images.small" alt="" srcset="" />
-        </swiper-slide>
-      </swiper-container>
+      @if(recentCards.length){
+
+        <swiper-container
+          class="swiper"
+          slides-per-view="3"
+          centered-slides="false"
+          round-lengths="true"
+          loop="true"
+          autoplay="true"
+          delay="2000"
+          height="400">
+          <swiper-slide class="card" (click)="goToCard(recentCards[0])">
+            <img [src]="recentCards[0].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[1])">
+            <img [src]="recentCards[1].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[2])">
+            <img [src]="recentCards[2].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[3])">
+            <img [src]="recentCards[3].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[4])">
+            <img [src]="recentCards[4].images.small" alt="" srcset="" />
+          </swiper-slide>
+          <swiper-slide class="card" (click)="goToCard(recentCards[5])">
+            <img [src]="recentCards[5].images.small" alt="" srcset="" />
+          </swiper-slide>
+        </swiper-container>
+      }
     </div>
     <div class="cta">
-      <button>See all cards</button>
+      <button routerLink="/cards">See all cards</button>
     </div>
   </div>
   <div class="main-content">

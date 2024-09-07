@@ -1,11 +1,12 @@
 import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CardsService } from '../../shared/services/cards.service';
 import { CarouselComponent } from 'ngx-carousel-ease';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CarouselComponent ],
+  imports: [CarouselComponent, RouterModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
