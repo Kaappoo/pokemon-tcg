@@ -1,3 +1,8 @@
+interface images{
+    small: string,
+    large: string
+}
+
 export interface Card {
     id: string,
     name: string
@@ -24,7 +29,20 @@ export interface Card {
     nationalPokedexNumbers: number[],
     legalities: object,
     regulationMark: string,
-    images: object,
+    images: images,
     tcgplayer: object,
     cardmarket: object
+}
+
+export interface CardRequest {
+    first: number,
+    rows: number
+}
+
+export interface CardResponse {
+    count: number,
+    data: Card[],
+    page: number,
+    pageSize: number,
+    totalCount: number
 }
