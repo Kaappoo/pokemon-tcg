@@ -2,15 +2,9 @@
     <div class="cards">
         @if (!isLoading) {
             @for (card of cards; track $index) {
-                <div class="card">
-                    <img [src]="card.images.small" alt="">
-                    <span class="name">
-                        {{card.name}}
-                    </span>
-                    <span class="price">
-                        {{card.set.name}}
-                    </span>
-                </div>
+                    <div class="card vanillaTilt" data-tilt >
+                        <img [src]="card.images.small" alt="">
+                    </div>
             }
         } @else {
             <h1>ITS LOADING</h1>

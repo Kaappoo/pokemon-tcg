@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { PaginatorModule } from 'primeng/paginator';
 import { CardsService } from '../../shared/services/cards.service';
 import { Card, CardResponse } from '../../shared/interfaces/card';
@@ -29,6 +29,7 @@ export class CardsComponent {
   ngOnInit(){
     this.getCardsList();
   }
+
 
   getCardsList(){
     this.isLoading = true;
