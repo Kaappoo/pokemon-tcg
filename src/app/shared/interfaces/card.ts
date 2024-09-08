@@ -1,6 +1,14 @@
-interface images{
+interface Images{
     small: string,
     large: string
+}
+
+interface Set {
+    name: string
+}
+
+interface CardMarket {
+    averageSellPrice: number
 }
 
 export interface Card {
@@ -21,7 +29,7 @@ export interface Card {
     resistances: object[],
     retreatCost: string[],
     convertedRetreatCost: number,
-    set: object,
+    set: Set,
     number: string,
     artist: string,
     rarity: string,
@@ -29,9 +37,9 @@ export interface Card {
     nationalPokedexNumbers: number[],
     legalities: object,
     regulationMark: string,
-    images: images,
+    images: Images,
     tcgplayer: object,
-    cardmarket: object
+    cardmarket: CardMarket
 }
 
 export interface CardRequest {
@@ -46,3 +54,5 @@ export interface CardResponse {
     pageSize: number,
     totalCount: number
 }
+
+

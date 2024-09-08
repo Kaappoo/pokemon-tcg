@@ -1,12 +1,27 @@
-<p>cards works!</p>
+<div class="main">
+    <div class="cards">
+        @if (!isLoading) {
+            @for (card of cards; track $index) {
+                <div class="card">
+                    <img [src]="card.images.small" alt="">
+                    <span class="name">
+                        {{card.name}}
+                    </span>
+                    <span class="price">
+                        {{card.set.name}}
+                    </span>
+                </div>
+            }
+        } @else {
+            <h1>ITS LOADING</h1>
+        }
+    </div>
+    <p-paginator 
+        (onPageChange)="onPageChange($event)" 
+        [first]="request.first"
+        [rows]="request.rows" 
+        [totalRecords]="120" 
+        [rowsPerPageOptions]="[10, 20, 30]" />
+</div>
 
-@for (card of cards; track $index) {
-    <h3>{{card.name}}</h3>
-}
 
-<p-paginator 
-    (onPageChange)="onPageChange($event)" 
-    [first]="request.first"
-    [rows]="request.rows" 
-    [totalRecords]="120" 
-    [rowsPerPageOptions]="[10, 20, 30]" />

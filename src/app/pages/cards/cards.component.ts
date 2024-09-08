@@ -19,7 +19,8 @@ interface PageEvent {
 })
 export class CardsComponent {
   private cardsService = inject(CardsService);
-  cards: Card[] = []
+  cards: Card[] = [];
+  isLoading: boolean = false;
   request = {
     first: 0,
     rows: 10
@@ -30,10 +31,12 @@ export class CardsComponent {
   }
 
   getCardsList(){
+    this.isLoading = true;
     this.cardsService.listCards(this.request).subscribe((res: CardResponse) => {
       console.log(res);
       
       this.cards = res.data;
+      this.isLoading = false;
     })
   }
 
