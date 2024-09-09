@@ -1,33 +1,71 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 1rem;
+  background-color: #090016;
+  color: #f7f7f7;
 
-  .cards {
+  .cards-header{
     display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 100%;
     padding: 1rem;
 
-    .card {
-      display: flex;
-      flex-direction: column;
-      z-index: 1;
-      transition: all 0.1s ease-in-out;
-
-      img {
-        width: 200px;
-      }
-
-      // &:hover {
-      //   transform: scale(1.05);
-      //   z-index: 10;
-
-      // }
+    h2{
+      text-transform: uppercase;
+      margin: 0;
     }
+  }
+
+  .cards-main{
+    display: flex;
+
+
+    .cards-side{
+      display: flex;
+      flex: 1;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      min-height: 100vh;
+      padding: 1rem;
+      flex: 5;
+      
+      .card {
+        flex: 1 1 15%;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+        transition: all 0.1s ease-in-out;
+  
+        img {
+          width: 200px;
+        }
+  
+        // &:hover {
+        //   transform: scale(1.05);
+        //   z-index: 10;
+  
+        // }
+      }
+    }
+  }
+
+  .p-paginator {
+    background-color: #090016 !important;
+  }
+  
+}
+
+:host{
+  ::ng-deep .p-paginator{
+    background-color: #090016 !important;
+  }
+  ::ng-deep .p-paginator-next, .p-paginator-last{
+    color: #f7f7f7;
   }
 }

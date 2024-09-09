@@ -1,21 +1,32 @@
 <div class="main">
-    <div class="cards">
-        @if (!isLoading) {
-            @for (card of cards; track $index) {
-                    <div class="card vanillaTilt" data-tilt >
-                        <img [src]="card.images.small" alt="">
-                    </div>
-            }
-        } @else {
-            <h1>ITS LOADING</h1>
-        }
+    <div class="cards-header">
+        <h2>cards search</h2>
     </div>
-    <p-paginator 
-        (onPageChange)="onPageChange($event)" 
-        [first]="request.first"
-        [rows]="request.rows" 
-        [totalRecords]="120" 
-        [rowsPerPageOptions]="[10, 20, 30]" />
+    <div class="cards-main">
+        <div class="cards-side">
+            lateral insana . com
+        </div>
+        <div class="cards">
+            @if (!isLoading) {
+                @for (card of cards; track $index) {
+                        <div class="card vanillaTilt" data-tilt >
+                            <img [src]="card.images.small" alt="">
+                        </div>
+                }
+            } @else {
+                <h1>ITS LOADING</h1>
+            }
+        </div>
+    </div>
+    @if (!isLoading) {
+        <p-paginator 
+            (onPageChange)="onPageChange($event)" 
+            [first]="request.first"
+            [rows]="request.rows" 
+            [totalRecords]="120" 
+            [rowsPerPageOptions]="[20, 30, 50]"
+            class="paginator" />
+    }
 </div>
 
 

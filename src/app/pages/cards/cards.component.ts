@@ -23,7 +23,7 @@ export class CardsComponent {
   isLoading: boolean = false;
   request = {
     first: 0,
-    rows: 10
+    rows: 20
   }
 
   ngOnInit(){
@@ -34,7 +34,6 @@ export class CardsComponent {
   getCardsList(){
     this.isLoading = true;
     this.cardsService.listCards(this.request).subscribe((res: CardResponse) => {
-      console.log(res);
       
       this.cards = res.data;
       this.isLoading = false;
@@ -44,7 +43,6 @@ export class CardsComponent {
   onPageChange(event: any) {
     this.request.first = event.first;
     this.request.rows = event.rows;
-    console.log(this.request);
     
     this.getCardsList();
   }
