@@ -11,6 +11,7 @@
           [suggestions]="filteredSets"
           (completeMethod)="filterSet($event)"
           field="name"
+          (onSelect)="onSelectSet($event)"
         />
       </div>
     </div>
@@ -24,14 +25,18 @@
       }
     </div>
   </div>
-  @if (!isLoading) {
+  @if (!isLoading ) {
   <p-paginator
     (onPageChange)="onPageChange($event)"
     [first]="request.first"
     [rows]="request.rows"
-    [totalRecords]="120"
+    [totalRecords]="totalCardsCount"
     [rowsPerPageOptions]="[20, 30, 50]"
     class="paginator"
+    [showPageLinks]="false"
+    [showJumpToPageDropdown]="false"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
   />
   }
 </div>

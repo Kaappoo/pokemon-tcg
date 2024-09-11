@@ -21,59 +21,60 @@ export class CardsComponent {
   private cardsService = inject(CardsService);
   private setsService = inject(SetsService);
   cards: Card[] = [];
+  totalCardsCount = 120;
   sets: any[] = [];
   filteredSets: any[] = [];
   selectedSet = '';
   isLoading: boolean = false;
   request = {
     first: 0,
-    rows: 20
-  }
+    rows: 20,
+    set: '',
+  };
 
-  ngOnInit(){
+  ngOnInit() {
     this.getCardsList();
     this.getSetsList();
   }
 
-
-  getCardsList(){
+  getCardsList() {
     this.isLoading = true;
     this.cardsService.listCards(this.request).subscribe((res: CardResponse) => {
-      
       this.cards = res.data;
+      this.totalCardsCount = res.totalCount;
       this.isLoading = false;
-    })
+    });
   }
 
-  getSetsList(){
+  getSetsList() {
     this.setsService.getSets().subscribe((res: any) => {
-      console.log(res);
       this.sets = res.data;
-      
-    })
+    });
   }
 
   onPageChange(event: any) {
     this.request.first = event.first;
     this.request.rows = event.rows;
-    
+
     this.getCardsList();
   }
 
-  filterSet(event: AutoCompleteEvent){
-    console.log(event);
-
+  filterSet(event: AutoCompleteEvent) {
     let filtered: any[] = [];
-        let query = event.query;
+    let query = event.query;
 
-        for (let i = 0; i < (this.sets as any[]).length; i++) {
-            let set = (this.sets as any[])[i];
-            if (set.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
-                filtered.push(set);
-            }
-        }
+    for (let i = 0; i < (this.sets as any[]).length; i++) {
+      let set = (this.sets as any[])[i];
+      if (set.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+        filtered.push(set);
+      }
+    }
 
-        this.filteredSets = filtered;
+    this.filteredSets = filtered;
+  }
 
+  onSelectSet(event: any){
+    this.request.set = event.value.id;
+    this.getCardsList();
   }
 }

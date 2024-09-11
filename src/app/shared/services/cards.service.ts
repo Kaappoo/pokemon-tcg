@@ -14,10 +14,14 @@ export class CardsService {
   private header = new HttpHeaders({'x-api-key': environment.api.pokemontcg.apiKey});
 
   listCards(request: CardRequest): Observable<CardResponse>{
-    const {first , rows} = request;
-
+    const {first , rows, set} = request;
+    var pageDetails = ''
     const page = (first/rows) + 1;
-    const pageDetails = `pageSize=${rows}&page=${page}`;
+    if(set != ''){
+      pageDetails = `pageSize=${rows}&page=${page}&q=set.id:${set}`;
+    } else {
+      pageDetails = `pageSize=${rows}&page=${page}`;
+    }
 
     return this.http.get<CardResponse>(`${environment.api.pokemontcg.uri}/cards?${pageDetails}`, {headers: this.header});
   }
