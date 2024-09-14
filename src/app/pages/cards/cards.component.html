@@ -4,7 +4,8 @@
   </div>
   <div class="cards-main">
     <div class="cards-side">
-      <div class="expansion-select">
+      <div class="select">
+        <label for="name">Select Set</label>
         <p-autoComplete
           [(ngModel)]="selectedSet"
           [dropdown]="true"
@@ -14,12 +15,35 @@
           (onSelect)="onSelectSet($event)"
         />
       </div>
+      <div class="select">
+        <label for="name">Select Type</label>
+        <p-autoComplete
+          [(ngModel)]="selectedType"
+          [dropdown]="true"
+          [suggestions]="filteredTypes"
+          (completeMethod)="filterType($event)"
+          (onSelect)="onSelectType($event)"
+        />
+      </div>
+      <div class="select">
+        <label for="name">Select Subtype</label>
+        <p-autoComplete
+          [(ngModel)]="selectedSubtype"
+          [dropdown]="true"
+          [suggestions]="filteredSubtypes"
+          (completeMethod)="filterSubtype($event)"
+          (onSelect)="onSelectSubtype($event)"
+        />
+      </div>
     </div>
     <div class="cards">
-      @if (!isLoading) { @for (card of cards; track $index) {
+      @if (!isLoading) { @if (cards.length) { @for (card of cards; track $index)
+      {
       <div class="card vanillaTilt" data-tilt>
         <img [src]="card.images.small" alt="" />
       </div>
+      } } @else {
+      <h1>NO MATCH</h1>
       } } @else {
       <h1>ITS LOADING</h1>
       }

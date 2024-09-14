@@ -45,7 +45,9 @@ export interface Card {
 export interface CardRequest {
     first: number,
     rows: number,
-    set: string
+    set: string,
+    type: string,
+    subtype: string,
 }
 
 export interface CardResponse {
