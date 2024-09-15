@@ -31,6 +31,10 @@ export class CardsService {
     return this.http.get<CardResponse>(`${environment.api.pokemontcg.uri}/cards?pageSize=${pageSize}&orderBy=-cardmarket.prices.averageSellPrice&q=supertype:pokemon`, {headers: this.header});
   }
 
+  getCard(cardId: any){
+    return this.http.get(`${environment.api.pokemontcg.uri}/cards/${cardId}`, {headers: this.header});
+  }
+
   private formatRequest(pageDetails: any, set: any, type: any, subtype: any){
     pageDetails += `&q=`;
     if (set != '') pageDetails =  this.concatParameter(pageDetails, 'set.id', set);
