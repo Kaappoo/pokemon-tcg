@@ -13,6 +13,6 @@ export class SetsService {
   private header = new HttpHeaders({'x-api-key': environment.api.pokemontcg.apiKey});
 
   getSets(): Observable<SetResponse>{
-    return this.http.get<SetResponse>(`${environment.api.pokemontcg.uri}/sets`, {headers: this.header});
+    return this.http.get<SetResponse>(`${environment.api.pokemontcg.uri}/sets?orderBy=-releaseDate`, {headers: this.header});
   }
 }
