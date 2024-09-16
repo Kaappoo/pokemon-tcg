@@ -57,5 +57,12 @@ export interface CardResponse {
     pageSize: number,
     totalCount: number
 }
+export interface SingularCardResponse {
+    data: Card,
+}
+
+
+
+
 
 

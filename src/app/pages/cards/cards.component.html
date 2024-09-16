@@ -39,7 +39,7 @@
     <div class="cards">
       @if (!isLoading) { @if (cards.length) { @for (card of cards; track $index)
       {
-      <div class="card vanillaTilt" data-tilt>
+      <div class="card" (click)="viewCard(card.id)">
         <img [src]="card.images.small" alt="" />
       </div>
       } } @else {

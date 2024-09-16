@@ -1,7 +1,7 @@
 import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CardsService } from '../../shared/services/cards.service';
 import { CarouselComponent } from 'ngx-carousel-ease';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Card } from '../../shared/interfaces/card';
 
 @Component({
@@ -15,22 +15,14 @@ import { Card } from '../../shared/interfaces/card';
 export class HomeComponent {
 
   private cardsService = inject(CardsService);
-  // cards: Card[] =[];
+  private router = inject(Router);
   recentCards: Card[] =[];
   expensiveCards: Card[] =[];
 
   ngOnInit(){
-    // this.getCards();
     this.getNewCards();
     this.getExpensiveCards();
   }
-
-  // getCards(){
-  //   this.cardsService.listCards(6).subscribe((res: any) => {
-  //     console.log(res);
-  //     this.cards = res.data;
-  //   })
-  // }
 
   getNewCards(){
     this.cardsService.listNewCards(20).subscribe((res: any) => {
@@ -44,8 +36,7 @@ export class HomeComponent {
     })
   }
 
-  goToCard(card: any){
-    console.log(card);
-    
+  viewCard(cardId: any){
+    this.router.navigate(['view-card', {id: cardId}])
   }
 }

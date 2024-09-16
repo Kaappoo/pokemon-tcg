@@ -1,1 +1,80 @@
-<p>view-card works!</p>
+<div class="main">
+    @if(!isLoading){
+
+        <div class="first-session">
+            <div class="image">
+                <img [src]="card.images.large" alt="">
+            </div>
+            <div class="card-info">
+                <div class="info-row">
+                    <div class="basic-info">
+                        <span class="label">name</span>
+                        <h2>{{card.name}}</h2>
+                    </div>
+                    <div class="basic-info">
+                        <span class="label">type</span>
+                        <h2>{{card.types[0]}}</h2>
+                        @if (card.types[1]) {
+                            & {{card.types[1]}}
+                        }
+                    </div>
+                    <div class="basic-info">
+                        <span class="label">stage</span>
+                        <h2>{{card.subtypes[0]}}</h2>
+                    </div>
+                    @if(card.subtypes[1]){
+                        <div class="basic-info">
+                            <span class="label">subtypes</span>
+                            @for (subtype of card.subtypes; track $index) {
+                                @if($index != 0){
+                                    <h2>{{subtype}}</h2>
+                                }
+                            }
+                        </div>
+                    }
+                    <div class="basic-info">
+                        <span class="label">HP</span>
+                        <h2>{{card.hp}}</h2>
+                    </div>
+                    <div class="basic-info">
+                        <span class="label">set</span>
+                        <h2>{{card.set.name}}</h2>
+                    </div>
+                    @if(card.evolvesFrom){
+                        <div class="basic-info">
+                            <span class="label">evolves from</span>
+                            <h2>{{card.evolvesFrom}}</h2>
+                        </div>
+                    }
+                </div>
+    
+                <div class="attacks">
+                    <h2>ABILITIES AND ATTACKS</h2>
+                    @for (ability of card.abilities; track $index) {
+                        <div class="ability">
+                            <h2> <b>{{ability.type}}</b> {{ability.name}}</h2>
+                            <span> {{ability.text}} </span>
+                        </div>
+                    }
+                    @for (attack of card.attacks; track $index) {
+                    <div class="ability">
+                            <div class="attack-title">
+                                @for (cost of attack.cost; track $index) {
+                                    <div [class]="'energy-icons ' + cost"></div>
+                                }
+                                <div class="attack-name">{{attack.name}}</div>
+                                <div class="attack-damage">{{attack.damage}}</div>
+                            </div>
+                            @if (attack.text) {
+                                <span> {{attack.text}} </span>
+    
+                            }
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    } @else {
+        <h1>ITS LOADING</h1>
+    }
+</div>

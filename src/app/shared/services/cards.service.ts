@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
 import { environment } from '../environments/environment';
-import { Card, CardRequest, CardResponse } from '../interfaces/card';
+import { Card, CardRequest, CardResponse, SingularCardResponse } from '../interfaces/card';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -31,8 +31,8 @@ export class CardsService {
     return this.http.get<CardResponse>(`${environment.api.pokemontcg.uri}/cards?pageSize=${pageSize}&orderBy=-cardmarket.prices.averageSellPrice&q=supertype:pokemon`, {headers: this.header});
   }
 
-  getCard(cardId: any){
-    return this.http.get(`${environment.api.pokemontcg.uri}/cards/${cardId}`, {headers: this.header});
+  getCard(cardId: any): Observable<SingularCardResponse>{
+    return this.http.get<SingularCardResponse>(`${environment.api.pokemontcg.uri}/cards/${cardId}`, {headers: this.header});
   }
 
   private formatRequest(pageDetails: any, set: any, type: any, subtype: any){

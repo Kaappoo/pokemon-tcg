@@ -13,22 +13,22 @@
           autoplay="true"
           delay="2000"
           height="400">
-          <swiper-slide class="card" (click)="goToCard(recentCards[0])">
+          <swiper-slide class="card" (click)="viewCard(recentCards[0].id)">
             <img [src]="recentCards[0].images.small" alt="" srcset="" />
           </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[1])">
+          <swiper-slide class="card" (click)="viewCard(recentCards[1].id)">
             <img [src]="recentCards[1].images.small" alt="" srcset="" />
           </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[2])">
+          <swiper-slide class="card" (click)="viewCard(recentCards[2].id)">
             <img [src]="recentCards[2].images.small" alt="" srcset="" />
           </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[3])">
+          <swiper-slide class="card" (click)="viewCard(recentCards[3].id)">
             <img [src]="recentCards[3].images.small" alt="" srcset="" />
           </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[4])">
+          <swiper-slide class="card" (click)="viewCard(recentCards[4].id)">
             <img [src]="recentCards[4].images.small" alt="" srcset="" />
           </swiper-slide>
-          <swiper-slide class="card" (click)="goToCard(recentCards[5])">
+          <swiper-slide class="card" (click)="viewCard(recentCards[5].id)">
             <img [src]="recentCards[5].images.small" alt="" srcset="" />
           </swiper-slide>
         </swiper-container>
@@ -67,7 +67,7 @@
         autoplay="true"
         delay="2000">
         @for (card of recentCards; track $index) { @if ($index > 4) {
-        <swiper-slide class="card small" (click)="goToCard(card)">
+        <swiper-slide class="card small" (click)="viewCard(card.id)">
           <img [src]="card.images.small" alt="" srcset="" />
         </swiper-slide>
         } }
@@ -107,7 +107,7 @@
         autoplay="true"
         delay="2000">
         @for (card of expensiveCards; track $index) { @if ($index > 4) {
-        <swiper-slide class="card small" (click)="goToCard(card)">
+        <swiper-slide class="card small" (click)="viewCard(card.id)">
           <img [src]="card.images.small" alt="" srcset="" />
         </swiper-slide>
         } }

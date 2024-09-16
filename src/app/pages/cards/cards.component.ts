@@ -5,6 +5,7 @@ import { Card, CardRequest, CardResponse } from '../../shared/interfaces/card';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { SetsService } from '../../shared/services/sets.service';
 import { TypesService } from '../../shared/services/types.service';
+import { Router } from '@angular/router';
 
 interface AutoCompleteEvent {
   originalEvent: Event;
@@ -22,6 +23,7 @@ export class CardsComponent {
   private cardsService = inject(CardsService);
   private setsService = inject(SetsService);
   private typesService = inject(TypesService);
+  private router = inject(Router);
   cards: Card[] = [];
   totalCardsCount = 120;
 
@@ -142,5 +144,9 @@ export class CardsComponent {
   onSelectSubtype(event: any){
     this.request.subtype = event.value;
     this.getCardsList();
+  }
+
+  viewCard(cardId: any){
+    this.router.navigate(['view-card', {id: cardId}])
   }
 }
