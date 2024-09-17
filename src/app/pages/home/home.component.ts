@@ -19,20 +19,27 @@ export class HomeComponent {
   recentCards: Card[] =[];
   expensiveCards: Card[] =[];
 
+  isLoadingNewCards = false;
+  isLoadingExpCards = false;
+
   ngOnInit(){
     this.getNewCards();
     this.getExpensiveCards();
   }
 
   getNewCards(){
+    this.isLoadingNewCards = true;
     this.cardsService.listNewCards(20).subscribe((res: any) => {
       this.recentCards = res.data;
+      this.isLoadingNewCards = false;
     })
   }
 
   getExpensiveCards(){
+    this.isLoadingExpCards = true;
     this.cardsService.listExpensiveCards(15).subscribe((res: any) => {
       this.expensiveCards = res.data;
+      this.isLoadingExpCards = false;
     })
   }
 

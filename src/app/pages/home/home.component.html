@@ -2,7 +2,7 @@
   <div class="banner">New Cards!</div>
   <div class="featured">
     <div class="carousel">
-      @if(recentCards.length){
+      @if(!isLoadingNewCards){
 
         <swiper-container
           class="swiper"
@@ -14,24 +14,26 @@
           delay="2000"
           height="400">
           <swiper-slide class="card" (click)="viewCard(recentCards[0].id)">
-            <img [src]="recentCards[0].images.small" alt="" srcset="" />
+            <img [src]="recentCards[0].images.small" alt="" srcset="" loading="lazy" />
           </swiper-slide>
           <swiper-slide class="card" (click)="viewCard(recentCards[1].id)">
-            <img [src]="recentCards[1].images.small" alt="" srcset="" />
+            <img [src]="recentCards[1].images.small" alt="" srcset="" loading="lazy" />
           </swiper-slide>
           <swiper-slide class="card" (click)="viewCard(recentCards[2].id)">
-            <img [src]="recentCards[2].images.small" alt="" srcset="" />
+            <img [src]="recentCards[2].images.small" alt="" srcset="" loading="lazy" />
           </swiper-slide>
           <swiper-slide class="card" (click)="viewCard(recentCards[3].id)">
-            <img [src]="recentCards[3].images.small" alt="" srcset="" />
+            <img [src]="recentCards[3].images.small" alt="" srcset="" loading="lazy" />
           </swiper-slide>
           <swiper-slide class="card" (click)="viewCard(recentCards[4].id)">
-            <img [src]="recentCards[4].images.small" alt="" srcset="" />
+            <img [src]="recentCards[4].images.small" alt="" srcset="" loading="lazy" />
           </swiper-slide>
           <swiper-slide class="card" (click)="viewCard(recentCards[5].id)">
-            <img [src]="recentCards[5].images.small" alt="" srcset="" />
+            <img [src]="recentCards[5].images.small" alt="" srcset="" loading="lazy" />
           </swiper-slide>
         </swiper-container>
+      } @else {
+        <h1>ITS LOADING</h1>
       }
     </div>
     <div class="cta">
@@ -60,20 +62,20 @@
     </div>
 
     <div class="slider">
-      <swiper-container
-        class="swiper small"
-        slides-per-view="5"
-        loop="true"
-        autoplay="true"
-        delay="2000">
-        @for (card of recentCards; track $index) { @if ($index > 4) {
-        <swiper-slide class="card small" (click)="viewCard(card.id)">
-          <img [src]="card.images.small" alt="" srcset="" />
-        </swiper-slide>
-        } }
-      </swiper-container>
-    </div>
-
+        <swiper-container
+          class="swiper small"
+          slides-per-view="5"
+          loop="true"
+          autoplay="true"
+          delay="2000">
+          @for (card of recentCards; track $index) { @if ($index > 4) {
+          <swiper-slide class="card small" (click)="viewCard(card.id)">
+            <img [src]="card.images.small" alt="" srcset="" loading="lazy"/>
+          </swiper-slide>
+          } }
+        </swiper-container>
+      </div>
+      
     <div class="section reverse">
       <div class="section-content">
         <h1>Expansions!</h1>
