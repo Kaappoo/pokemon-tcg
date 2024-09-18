@@ -4,6 +4,11 @@
         <div class="first-session">
             <div class="image">
                 <img [src]="card.images.large" alt="">
+                @for (rule of card.rules; track $index) {
+                    <div class="rule">
+                        <span> {{rule}} </span>
+                    </div>
+                }
             </div>
             <div class="card-info">
                 <div class="info-row">
@@ -71,6 +76,49 @@
                             }
                     </div>
                     }
+                </div>
+
+                <div class="info-row">
+                    <div class="basic-info weakness">
+                        <span class="label">weaknesses</span>
+                        @for (weakness of card.weaknesses ; track $index) {
+                            <div [class]="'energy-icons ' + weakness.type"></div>
+                            {{weakness.value}}
+                        } @empty {
+                            none
+                        }
+                    </div>
+                    <div class="basic-info weakness">
+                        <span class="label">resistances</span>
+                        @for (resistance of card.resistances ; track $index) {
+                            <div [class]="'energy-icons ' + resistance.type"></div>
+                            {{resistance.value}}
+                        }   @empty {
+                            none
+                        }
+                    </div>
+                    <div class="basic-info weakness">
+                        <span class="label">retreat cost</span>
+                        @for (retreatCost of card.retreatCost ; track $index) {
+                            <div [class]="'energy-icons ' + retreatCost"></div>
+                        }   @empty {
+                            none
+                        }
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="basic-info">
+                        <span class="label">number</span>
+                        <span>{{card.number}}</span>
+                    </div>
+                    <div class="basic-info">
+                        <span class="label">rarity</span>
+                        <span>{{card.rarity}}</span>
+                    </div>
+                    <div class="basic-info">
+                        <span class="label">rarity</span>
+                        <span>{{card.rarity}}</span>
+                    </div>
                 </div>
             </div>
         </div>
