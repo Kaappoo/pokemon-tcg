@@ -116,9 +116,48 @@
                         <span>{{card.rarity}}</span>
                     </div>
                     <div class="basic-info">
-                        <span class="label">rarity</span>
-                        <span>{{card.rarity}}</span>
+                        <span class="label">regulation mark</span>
+                        <span>{{card.regulationMark}}</span>
                     </div>
+                </div>
+                <div class="prices">
+                    <div class="prices-title">
+                        <h2>Prices</h2>
+                        <span>offered by <a [href]="card.tcgplayer.url" target="_blank" rel="noopener noreferrer">tcgplayer</a>. Prices are in dollars.</span>
+                    </div>
+                    <p-table [value]="pricesTCG" [tableStyle]="{ 'min-width': '50rem' }">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>card type</th>
+                                <th>price</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-card let-index="rowIndex">
+                            <tr>
+                                <td>{{ pricesKeysTCG[index] }}</td>
+                                <td>{{ card.market }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                    <div class="prices-title">
+                        <h2>Prices</h2>
+                        <span>offered by <a [href]="card.cardmarket.url" target="_blank" rel="noopener noreferrer">cardmarket</a>. Prices are in dollars.</span>
+                    </div>
+                    <p-table [value]="pricesCM" [tableStyle]="{ 'min-width': '50rem' }">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>card type</th>
+                                <th>price</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-card let-index="rowIndex">
+                            <tr>
+                                <td>{{ pricesKeysCM[index] }}</td>
+                                <td>{{ card }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                    
                 </div>
             </div>
         </div>
