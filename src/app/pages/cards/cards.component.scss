@@ -8,11 +8,27 @@
   .cards-header {
     display: flex;
     padding: 1rem;
+    justify-content: space-between;
 
     h2 {
       text-transform: uppercase;
       margin: 0;
     }
+
+    .search{
+      display: flex;
+      height: 35px;
+      background-color: #FFF;
+      align-items: center;
+      border-radius: 10px;
+      padding: 0.1rem 0.3rem;
+      color: #3a1078;
+
+      input{
+          outline: none;
+          border: none;
+      }
+  }
   }
 
   .cards-main {

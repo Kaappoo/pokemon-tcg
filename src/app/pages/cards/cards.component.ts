@@ -6,6 +6,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { SetsService } from '../../shared/services/sets.service';
 import { TypesService } from '../../shared/services/types.service';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 interface AutoCompleteEvent {
   originalEvent: Event;
@@ -15,7 +17,7 @@ interface AutoCompleteEvent {
 @Component({
   selector: 'app-cards',
   standalone: true,
-  imports: [PaginatorModule, AutoCompleteModule],
+  imports: [PaginatorModule, AutoCompleteModule, MatIconModule, FormsModule],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss',
 })
@@ -45,8 +47,11 @@ export class CardsComponent {
     rows: 20,
     set: '',
     type: '',
-    subtype: ''
+    subtype: '',
+    search: '',
   };
+
+  searchString = '';
 
   ngOnInit() {
     this.getCardsList();
@@ -148,5 +153,16 @@ export class CardsComponent {
 
   viewCard(cardId: any){
     this.router.navigate(['view-card', {id: cardId}])
+  }
+
+  onChangeInput(){
+    if(this.searchString.length > 2){
+      this.request.search = this.searchString;
+      return this.getCardsList();
+    }
+    if(this.searchString.length < 2 && this.request.search != ''){
+      this.request.search = ''
+      this.getCardsList();
+    } 
   }
 }

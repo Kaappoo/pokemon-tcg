@@ -48,6 +48,7 @@ export interface CardRequest {
     set: string,
     type: string,
     subtype: string,
+    search: string,
 }
 
 export interface CardResponse {

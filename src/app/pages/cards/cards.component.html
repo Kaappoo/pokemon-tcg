@@ -1,6 +1,10 @@
 <div class="main">
   <div class="cards-header">
     <h2>cards search</h2>
+    <div class="search">
+      <input type="text" placeholder="Enter name.." (input)="onChangeInput()" [(ngModel)]="searchString">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+    </div>
   </div>
   <div class="cards-main">
     <div class="cards-side">

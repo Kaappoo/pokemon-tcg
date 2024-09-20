@@ -14,11 +14,11 @@ export class CardsService {
   private header = new HttpHeaders({'x-api-key': environment.api.pokemontcg.apiKey});
 
   listCards(request: CardRequest): Observable<CardResponse>{
-    const {first , rows, set, type, subtype} = request;
+    const {first , rows, set, type, subtype, search} = request;
     const page = (first/rows) + 1;
     var pageDetails =  `pageSize=${rows}&page=${page}`;
 
-    if(set != '' || type != '' || subtype != '') pageDetails = this.formatRequest(pageDetails, set, type, subtype);
+    if(set != '' || type != '' || subtype != '' || search != '') pageDetails = this.formatRequest(pageDetails, set, type, subtype, search);
 
     return this.http.get<CardResponse>(`${environment.api.pokemontcg.uri}/cards?${pageDetails}`, {headers: this.header});
   }
@@ -35,12 +35,13 @@ export class CardsService {
     return this.http.get<SingularCardResponse>(`${environment.api.pokemontcg.uri}/cards/${cardId}`, {headers: this.header});
   }
 
-  private formatRequest(pageDetails: any, set: any, type: any, subtype: any){
+  private formatRequest(pageDetails: any, set: any, type: any, subtype: any, search: any){
     pageDetails += `&q=`;
     if (set != '') pageDetails =  this.concatParameter(pageDetails, 'set.id', set);
     if (type != '') pageDetails =  this.concatParameter(pageDetails, 'types', type);
     if (subtype != '') pageDetails =  this.concatParameter(pageDetails, 'subtypes', subtype);
-
+    if (search != '') pageDetails =  this.concatParameter(pageDetails, 'name', search + '*');
+    
     return pageDetails;
   }
 
