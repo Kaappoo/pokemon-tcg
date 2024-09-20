@@ -52,7 +52,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 3rem;
-      // justify-content: space-evenly;
       width: 100%;
       min-height: 100vh;
       padding: 1rem;
@@ -64,16 +63,11 @@
         flex-direction: column;
         z-index: 1;
         transition: all 0.1s ease-in-out;
+        cursor: pointer;
 
         img {
           width: 200px;
         }
-
-        // &:hover {
-        //   transform: scale(1.05);
-        //   z-index: 10;
-
-        // }
       }
     }
   }
