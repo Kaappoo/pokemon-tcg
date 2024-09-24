@@ -1,0 +1,33 @@
+<div class="main">
+    <h1>All sets</h1>
+    @if(!isLoading){
+        <div class="sets">
+            @for (set of sets; track $index) {
+            <div class="set" (click)="goToSet(set)">
+                <img [src]="set.images.logo" alt="">
+                <span>
+                    {{set.name}}
+                </span>
+            </div>
+            } @empty {
+                <h1>nao tem</h1>
+            }
+        </div>
+    } @else {
+        <h1>ITS LOADING</h1>
+    }
+
+
+    <p-paginator
+    (onPageChange)="onPageChange($event)"
+    [first]="request.first"
+    [rows]="request.rows"
+    [totalRecords]="totalSetsCount"
+    [rowsPerPageOptions]="[20, 30, 50]"
+    class="paginator"
+    [showPageLinks]="false"
+    [showJumpToPageDropdown]="false"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
+  />
+</div>

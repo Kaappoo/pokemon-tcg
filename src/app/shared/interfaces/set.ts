@@ -8,7 +8,7 @@ export interface Set {
   ptcgoCode: string;
   releaseDate: string;
   updatedAt: string;
-  images: any;
+  images: {symbol: string, logo: string};
 }
 
 export interface SetResponse {
@@ -17,4 +17,9 @@ export interface SetResponse {
     page: number,
     pageSize: number,
     totalCount: number
+}
+
+export interface SetRequest {
+  first: number,
+  rows: number
 }

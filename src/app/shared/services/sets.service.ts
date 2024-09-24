@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { SetResponse } from '../interfaces/set';
+import { SetRequest, SetResponse } from '../interfaces/set';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,6 +14,13 @@ export class SetsService {
 
   getSets(): Observable<SetResponse>{
     return this.http.get<SetResponse>(`${environment.api.pokemontcg.uri}/sets?orderBy=-releaseDate`, {headers: this.header});
+  }
+
+  getSetsPag(request: SetRequest){
+    const {first , rows} = request;
+    const page = (first/rows) + 1;
+    var pageDetails =  `pageSize=${rows}&page=${page}`;
+    return this.http.get<SetResponse>(`${environment.api.pokemontcg.uri}/sets?${pageDetails}&orderBy=-releaseDate`, {headers: this.header});
   }
 
   getNewestSet(): Observable<SetResponse>{
