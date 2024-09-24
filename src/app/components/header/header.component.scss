@@ -1,54 +1,83 @@
-.main{
-    height: 10vh;
-    background-color: #3A1078;
+.main {
+  height: 10vh;
+  background-color: #3a1078;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  justify-content: space-between;
+
+  .logo {
+    color: #f7f7f8;
     display: flex;
     align-items: center;
-    padding: 1rem 2rem;
-    box-sizing: border-box;
-    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
 
-    .logo{
-        color: #F7F7F8;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        cursor: pointer;
-
-        img{
-            height: 8vh;
-        }
+    img {
+      height: 8vh;
     }
+  }
 
-    nav{
-        display: flex;
-        // gap: 1rem;
+  nav {
+    display: flex;
+    // gap: 1rem;
 
-        span{
-            font-size: 20px;
-            font-weight: 500;
-            color: #F7F7F8;
-            padding: 0px 0.4rem;
-            cursor: pointer;
-            &:nth-child(even){
-                border: #FFF solid 1px;
-                border-top: none;
-                border-bottom: none;
-            }
-        }
-
+    span {
+      font-size: 20px;
+      font-weight: 500;
+      color: #f7f7f8;
+      padding: 0px 0.4rem;
+      cursor: pointer;
+      &:nth-child(even) {
+        border: #fff solid 1px;
+        border-top: none;
+        border-bottom: none;
+      }
     }
+  }
 
-    .search{
-        display: flex;
-        height: 35px;
-        background-color: #FFF;
-        align-items: center;
-        border-radius: 10px;
-        padding: 0.1rem 0.3rem;
+  .search {
+    display: flex;
+    height: 35px;
+    background-color: #fff;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0.1rem 0.3rem;
 
-        input{
-            outline: none;
-            border: none;
-        }
+    input {
+      outline: none;
+      border: none;
     }
+  }
+  @media (max-width: 425px) {
+    .logo h1{
+        font-size: 20px;
+    }
+    nav {
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+  @media (max-width: 375px) {
+    .logo h1{
+        font-size: 16px;
+    }
+    nav {
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+  @media (max-width: 320px) {
+    .logo h1{
+        font-size: 14px;
+    }
+    nav {
+      span {
+        font-size: 9px;
+      }
+    }
+  }
 }
