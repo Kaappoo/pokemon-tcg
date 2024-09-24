@@ -15,4 +15,8 @@ export class SetsService {
   getSets(): Observable<SetResponse>{
     return this.http.get<SetResponse>(`${environment.api.pokemontcg.uri}/sets?orderBy=-releaseDate`, {headers: this.header});
   }
+
+  getNewestSet(): Observable<SetResponse>{
+    return this.http.get<SetResponse>(`${environment.api.pokemontcg.uri}/sets?orderBy=-releaseDate&pageSize=1`, {headers: this.header});
+  }
 }

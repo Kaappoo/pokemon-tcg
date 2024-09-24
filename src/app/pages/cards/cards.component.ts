@@ -5,7 +5,7 @@ import { Card, CardRequest, CardResponse } from '../../shared/interfaces/card';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { SetsService } from '../../shared/services/sets.service';
 import { TypesService } from '../../shared/services/types.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 
@@ -26,8 +26,13 @@ export class CardsComponent {
   private setsService = inject(SetsService);
   private typesService = inject(TypesService);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   cards: Card[] = [];
   totalCardsCount = 120;
+
+  routeParam!: 'set'| 'search' | '';
+  routeParamId: any;
 
   sets: any[] = [];
   filteredSets: any[] = [];
@@ -54,13 +59,19 @@ export class CardsComponent {
   searchString = '';
 
   ngOnInit() {
-    this.getCardsList();
+    if(this.route.snapshot.paramMap.get('search')){
+      this.routeParam = this.route.snapshot.paramMap.get('search') as 'set'| 'search';
+      this.routeParamId = this.route.snapshot.paramMap.get('id');
+      this.router.navigate(['cards']);
+    }
     this.getSetsList();
     this.getTypesList();
     this.getSubtypesList();
+    this.getCardsList();
   }
 
   getCardsList() {
+    if(this.routeParam) this.request[this.routeParam as 'set'| 'search'] = this.routeParamId;
     this.isLoading = true;
     this.cardsService.listCards(this.request).subscribe((res: CardResponse) => {
       this.cards = res.data;
@@ -72,6 +83,9 @@ export class CardsComponent {
   getSetsList() {
     this.setsService.getSets().subscribe((res: any) => {
       this.sets = res.data;
+      if(this.routeParam == 'set') this.selectedSet = this.sets.find((item: any) => item.id == this.routeParamId);
+      this.routeParam = '';
+      this.routeParamId = '';
     });
   }
 

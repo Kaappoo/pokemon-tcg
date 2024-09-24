@@ -3,6 +3,7 @@ import { CardsService } from '../../shared/services/cards.service';
 import { CarouselComponent } from 'ngx-carousel-ease';
 import { Router, RouterModule } from '@angular/router';
 import { Card } from '../../shared/interfaces/card';
+import { SetsService } from '../../shared/services/sets.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,9 @@ import { Card } from '../../shared/interfaces/card';
 export class HomeComponent {
 
   private cardsService = inject(CardsService);
+  private setsService = inject(SetsService);
   private router = inject(Router);
+
   recentCards: Card[] =[];
   expensiveCards: Card[] =[];
 
@@ -45,5 +48,17 @@ export class HomeComponent {
 
   viewCard(cardId: any){
     this.router.navigate(['view-card', {id: cardId}])
+  }
+
+  goToNewReleases(){
+    this.setsService.getNewestSet().subscribe((res: any) => {
+      this.router.navigate(['cards', {search: 'set', id: res.data[0].id}])
+    })
+  }
+
+  goToPokemon(name: string){
+    this.setsService.getNewestSet().subscribe((res: any) => {
+      this.router.navigate(['cards', {search: 'search', id: name}])
+    })
   }
 }

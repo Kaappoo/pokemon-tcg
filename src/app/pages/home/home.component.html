@@ -51,7 +51,7 @@
           ligula mollis nec. Duis pulvinar orci vitae suscipit gravida. Etiam
           neque velit, malesuada sit amet auctor in, efficitur a enim.</span
         >
-        <button>CHECK OUT</button>
+        <button (click)="goToNewReleases()">CHECK OUT</button>
       </div>
       <div class="section-image">
         <img
@@ -120,28 +120,28 @@
       <h2>Popular pokemon</h2>
       <div class="pokemon-buttons">
         <div class="collumn">
-          <div class="pokemon charizard">
+          <div class="pokemon charizard" (click)="goToPokemon('charizard')">
             <span>charizard</span>
           </div>
         </div>
         <div class="collumn">
-          <div class="pokemon pikachu">
+          <div class="pokemon pikachu" (click)="goToPokemon('pikachu')">
             <span>pikachu</span>
           </div>
-          <div class="pokemon eevee">
+          <div class="pokemon eevee" (click)="goToPokemon('eevee')">
             <span>eevee</span>
           </div>
         </div>
         <div class="collumn">
-          <div class="pokemon snorlax">
+          <div class="pokemon snorlax" (click)="goToPokemon('snorlax')">
             <span>snorlax</span>
           </div>
         </div>
         <div class="collumn">
-          <div class="pokemon mew">
+          <div class="pokemon mew" (click)="goToPokemon('mew')">
             <span>mew</span>
           </div>
-          <div class="pokemon gengar">
+          <div class="pokemon gengar" (click)="goToPokemon('gengar')">
             <span>gengar</span>
           </div>
         </div>
