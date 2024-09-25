@@ -9,6 +9,7 @@
     display: flex;
     padding: 1rem;
     justify-content: space-between;
+    align-items: center;
 
     h2 {
       text-transform: uppercase;
@@ -41,7 +42,9 @@
       flex-direction: column;
       gap: 2rem;
 
-      .expansion-select{
+      .select{
+        display: flex;
+        flex-direction: column;
         label{
           font-weight: 500;
         }
@@ -71,6 +74,7 @@
       }
     }
   }
+
 }
 
 :host {
@@ -88,6 +92,163 @@
     }
     .p-autocomplete-panel{
       width: 15.8rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .main{
+    
+    .cards-main{
+      flex-direction: column;
+  
+      .cards-side{
+        flex-direction: row;
+
+      }
+    }
+  }
+}
+@media (max-width: 768px){
+  .main{
+    .cards-main{
+      .cards{
+        .card{
+          img{
+            width: 130px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 425px) {
+  .main{
+    .cards-header{
+      
+      h2{
+        font-size: 18px;
+      }
+    }
+    .cards-main{
+      flex-direction: column;
+      
+      .cards-side{
+        flex-direction: row;
+        
+        .select{
+        
+          label{
+            font-size: 14px;
+          }
+        }
+      }
+      .cards{
+        .card{
+          img{
+            width: 95px;
+          }
+        }
+      }
+    }
+  }
+  :host {
+    ::ng-deep .p-autocomplete {
+      height: 2rem;
+      .p-button {
+        background-color: #090016 !important;
+        border: 2px solid #3a1078;
+        width: 2rem;
+      }
+      .p-autocomplete-panel{
+        width: 12rem;
+        left: -82px;
+      }
+    }
+  }
+  :host {
+    ::ng-deep .p-paginator {
+      // background-color: #131217 !important;
+      font-size: 10px;
+    }
+    ::ng-deep .p-paginator-prev {
+      // background-color: #131217 !important;
+      font-size: 10px;
+    }
+  }
+}
+@media (max-width: 375px){
+  .main{
+    .cards-header{
+      
+      h2{
+        font-size: 14px;
+      }
+      .search{
+        height: 32px;
+
+        input{
+          width: 120px;
+        }
+      }
+    }
+    .cards-main{
+      flex-direction: column;
+      
+      .cards-side{
+        flex-direction: row;
+        
+        .select{
+        
+          label{
+            font-size: 12px;
+          }
+        }
+      }
+      .cards{
+        .card{
+          img{
+            width: 82px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 360px){
+  .main{
+    .cards-header{
+      h2{
+        font-size: 14px;
+      }
+      .search{
+        height: 32px;
+
+        input{
+          width: 120px;
+        }
+      }
+    }
+    .cards-main{
+      flex-direction: column;
+      
+      .cards-side{
+        flex-direction: row;
+        
+        .select{
+        
+          label{
+            font-size: 10px;
+          }
+        }
+      }
+      .cards{
+        .card{
+          img{
+            width: 76px;
+          }
+        }
+      }
     }
   }
 }
