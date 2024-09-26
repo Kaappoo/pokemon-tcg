@@ -48,10 +48,30 @@
       .info-row {
         display: flex;
         // flex-direction: column;
-        gap: 3rem;
         border-bottom: 1px solid #d9d0ff;
         padding-bottom: 0.5rem;
-
+        gap: 3rem;
+        .info1, .info2{
+          gap: 3rem;
+          display: flex;
+          .basic-info {
+            display: flex;
+            flex-direction: column;
+            .label {
+              font-size: 14px;
+              color: #d9d0ff;
+            }
+            h2 {
+              margin: 0;
+            }
+  
+            &.weakness {
+              flex-direction: row;
+              align-items: center;
+              gap: 0.5rem;
+            }
+          }
+        }
         .basic-info {
           display: flex;
           flex-direction: column;
@@ -69,6 +89,7 @@
             gap: 0.5rem;
           }
         }
+
       }
 
       .attacks {
@@ -176,20 +197,7 @@
     }
   }
 }
-@media (max-width: 768px) {
-  .main .first-session {
-    .image {
-      .flavor-text {
-        font-size: 12px;
-      }
-    }
-    .card-info .info-row .basic-info {
-      h2 {
-        font-size: 18px;
-      }
-    }
-  }
-}
+
 @media (max-width: 768px) {
   .main .first-session {
     flex-direction: column;
@@ -218,8 +226,20 @@
       .info-row {
         gap: 1.6rem;
         .basic-info {
+          display: flex;
+          gap: 0.6rem;
           h2 {
             font-size: 18px;
+          }
+        }
+      }
+      .attacks{
+        .ability{
+          h2{
+            font-size: 20px;
+          }
+          span{
+            font-size: 16px;
           }
         }
       }
@@ -242,7 +262,22 @@
     }
     .card-info {
       .info-row {
+        flex-direction: column;
         gap: 0.4rem;
+
+        &.weakness{
+          flex-direction: row;
+        }
+      }
+      .attacks{
+        .ability{
+          h2{
+            font-size: 18px;
+          }
+          span{
+            font-size: 14px;
+          }
+        }
       }
     }
   }

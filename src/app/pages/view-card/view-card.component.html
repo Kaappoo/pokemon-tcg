@@ -20,45 +20,50 @@
             </div>
             <div class="card-info">
                 <div class="info-row">
-                    <div class="basic-info">
-                        <span class="label">name</span>
-                        <h2>{{card.name}}</h2>
-                    </div>
-                    <div class="basic-info">
-                        <span class="label">type</span>
-                        <h2>{{card.types[0]}}</h2>
-                        @if (card.types[1]) {
-                            & {{card.types[1]}}
-                        }
-                    </div>
-                    <div class="basic-info">
-                        <span class="label">stage</span>
-                        <h2>{{card.subtypes[0]}}</h2>
-                    </div>
-                    @if(card.subtypes[1]){
+                    <div class="info1">
                         <div class="basic-info">
-                            <span class="label">subtypes</span>
-                            @for (subtype of card.subtypes; track $index) {
-                                @if($index != 0){
-                                    <h2>{{subtype}}</h2>
-                                }
+                            <span class="label">name</span>
+                            <h2>{{card.name}}</h2>
+                        </div>
+                        <div class="basic-info">
+                            <span class="label">type</span>
+                            <h2>{{card.types[0]}}</h2>
+                            @if (card.types[1]) {
+                                & {{card.types[1]}}
                             }
                         </div>
-                    }
-                    <div class="basic-info">
-                        <span class="label">HP</span>
-                        <h2>{{card.hp}}</h2>
-                    </div>
-                    <div class="basic-info">
-                        <span class="label">set</span>
-                        <h2>{{card.set.name}}</h2>
-                    </div>
-                    @if(card.evolvesFrom){
                         <div class="basic-info">
-                            <span class="label">evolves from</span>
-                            <h2>{{card.evolvesFrom}}</h2>
+                            <span class="label">stage</span>
+                            <h2>{{card.subtypes[0]}}</h2>
                         </div>
-                    }
+                        @if(card.subtypes[1]){
+                            <div class="basic-info">
+                                <span class="label">subtypes</span>
+                                @for (subtype of card.subtypes; track $index) {
+                                    @if($index != 0){
+                                        <h2>{{subtype}}</h2>
+                                    }
+                                }
+                            </div>
+                        }
+                    </div>
+                    <div class="info2">
+
+                        <div class="basic-info">
+                            <span class="label">HP</span>
+                            <h2>{{card.hp}}</h2>
+                        </div>
+                        <div class="basic-info">
+                            <span class="label">set</span>
+                            <h2>{{card.set.name}}</h2>
+                        </div>
+                        @if(card.evolvesFrom){
+                            <div class="basic-info">
+                                <span class="label">evolves from</span>
+                                <h2>{{card.evolvesFrom}}</h2>
+                            </div>
+                        }
+                    </div>
                 </div>
     
                 <div class="attacks">
@@ -86,7 +91,7 @@
                     }
                 </div>
 
-                <div class="info-row">
+                <div class="info-row weakness">
                     <div class="basic-info weakness">
                         <span class="label">weaknesses</span>
                         @for (weakness of card.weaknesses ; track $index) {
@@ -114,7 +119,7 @@
                         }
                     </div>
                 </div>
-                <div class="info-row">
+                <div class="info-row weakness">
                     <div class="basic-info">
                         <span class="label">number</span>
                         <span>{{card.number}}</span>
