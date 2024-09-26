@@ -1,0 +1,33 @@
+.main {
+    height: fit-content;
+    background-color: #180831;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    justify-content: center;
+    color: #fff;
+    gap: 0.8rem;
+    padding: 1rem;
+    align-items: center;
+
+    h4{
+        margin: 0;
+        text-align: center;
+
+        a{
+            color: #883bcf;
+        }
+    }
+
+    .links{
+        display: flex;
+        gap: 1rem;
+        .link{
+            a{
+                color: #883bcf;
+            }
+        }
+    }
+}
