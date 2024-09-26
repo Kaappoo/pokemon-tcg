@@ -4,16 +4,19 @@
         <div class="first-session">
             <div class="image">
                 <img [src]="card.images.large" alt="">
-                @for (rule of card.rules; track $index) {
-                    <div class="rule">
-                        <span> {{rule}} </span>
-                    </div>
-                }
-                @if(card.flavorText){
-                    <div class="flavor-text">
-                        {{card.flavorText}}
-                    </div>
-                }
+                <div class="rules">
+
+                    @for (rule of card.rules; track $index) {
+                        <div class="rule">
+                            <span> {{rule}} </span>
+                        </div>
+                    }
+                    @if(card.flavorText){
+                        <div class="flavor-text">
+                            {{card.flavorText}}
+                        </div>
+                    }
+                </div>
             </div>
             <div class="card-info">
                 <div class="info-row">

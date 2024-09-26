@@ -18,21 +18,24 @@
       img {
         width: 20vw;
       }
-
-      .rule,
-      .flavor-text {
-        width: 20vw;
+      .rules{
         display: flex;
-        padding: 0.6rem;
         flex-direction: column;
-      }
-      .rule {
-        border: 1px solid #d9d0ff;
-        gap: 0.4rem;
-        border-radius: 4px;
-      }
-      .flavor-text {
-        border-bottom: 1px solid #d9d0ff;
+        .rule,
+        .flavor-text {
+          width: 20vw;
+          display: flex;
+          padding: 0.6rem;
+          flex-direction: column;
+        }
+        .rule {
+          border: 1px solid #d9d0ff;
+          gap: 0.4rem;
+          border-radius: 4px;
+        }
+        .flavor-text {
+          border-bottom: 1px solid #d9d0ff;
+        }
       }
     }
 
@@ -196,9 +199,18 @@
         width: 145px;
         height: auto;
       }
-      .flavor-text {
-        font-size: 12px;
-        width: 100%;
+      .rules{
+        flex-direction: row;
+        gap: 0.2rem;
+        height: fit-content;
+        .rule{
+          font-size: 12px;
+          width: 100%;
+        }
+        .flavor-text {
+          font-size: 12px;
+          width: 100%;
+        }
       }
     }
     .card-info {
@@ -214,26 +226,79 @@
     }
   }
 }
-@media (max-width: 375px) {
+@media (max-width: 425px) {
   .main .first-session {
+    .image {
+      .rules{
+        .rule{
+          font-size: 12px;
+          width: 100%;
+        }
+        .flavor-text {
+          font-size: 12px;
+          width: 100%;
+        }
+      }
+    }
     .card-info {
       .info-row {
-        gap: 1rem;
+        gap: 0.4rem;
+      }
+    }
+  }
+}
+@media (max-width: 375px) {
+  .main .first-session {
+    .image {
+      .rules{
+        .rule{
+          font-size: 10px;
+          width: 100%;
+        }
+        .flavor-text {
+          font-size: 10px;
+          width: 100%;
+        }
+      }
+    }
+    .card-info {
+      .info-row {
+        gap: 0.2rem;
+        .basic-info{
+          h2{
+            font-size: 14px;
+          }
+        }
       }
     }
   }
 }
 @media (max-width: 320px) {
   .main .first-session {
+    .image {
+      img{
+        width: 130px;
+      }
+      .rules{
+        .rule{
+          font-size: 10px;
+          width: 100%;
+        }
+        .flavor-text {
+          font-size: 10px;
+          width: 100%;
+        }
+      }
+    }
     .card-info {
       .info-row {
         gap: 0.6rem;
         .basic-info {
           label{
-            font-size: 12px;
+            font-size: 10px;
           }
           h2 {
-            font-size: 13px;
+            font-size: 10px;
           }
           &.weakness{
             gap: 0.2rem;
