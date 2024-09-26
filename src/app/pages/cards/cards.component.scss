@@ -252,3 +252,40 @@
     }
   }
 }
+@media (max-width: 320px){
+  .main{
+    .cards-header{
+      h2{
+        font-size: 14px;
+      }
+      .search{
+        height: 32px;
+
+        input{
+          width: 120px;
+        }
+      }
+    }
+    .cards-main{
+      flex-direction: column;
+      
+      .cards-side{
+        flex-direction: row;
+        
+        .select{
+        
+          label{
+            font-size: 10px;
+          }
+        }
+      }
+      .cards{
+        .card{
+          img{
+            width: 64px;
+          }
+        }
+      }
+    }
+  }
+}
