@@ -5,7 +5,6 @@
             <div class="image">
                 <img [src]="card.images.large" alt="">
                 <div class="rules">
-
                     @for (rule of card.rules; track $index) {
                         <div class="rule">
                             <span> {{rule}} </span>
@@ -25,34 +24,38 @@
                             <span class="label">name</span>
                             <h2>{{card.name}}</h2>
                         </div>
-                        <div class="basic-info">
-                            <span class="label">type</span>
-                            <h2>{{card.types[0]}}</h2>
-                            @if (card.types[1]) {
-                                & {{card.types[1]}}
-                            }
-                        </div>
-                        <div class="basic-info">
-                            <span class="label">stage</span>
-                            <h2>{{card.subtypes[0]}}</h2>
-                        </div>
-                        @if(card.subtypes[1]){
+                        @if (card.types) {
+
                             <div class="basic-info">
-                                <span class="label">subtypes</span>
-                                @for (subtype of card.subtypes; track $index) {
-                                    @if($index != 0){
-                                        <h2>{{subtype}}</h2>
-                                    }
+                                <span class="label">type</span>
+                                <h2>{{card.types[0]}}</h2>
+                                @if (card.types[1]) {
+                                    & {{card.types[1]}}
                                 }
                             </div>
+                            <div class="basic-info">
+                                <span class="label">stage</span>
+                                <h2>{{card.subtypes[0]}}</h2>
+                            </div>
+                            @if(card.subtypes[1]){
+                                <div class="basic-info">
+                                    <span class="label">subtypes</span>
+                                    @for (subtype of card.subtypes; track $index) {
+                                        @if($index != 0){
+                                            <h2>{{subtype}}</h2>
+                                        }
+                                    }
+                                </div>
+                            }
                         }
                     </div>
                     <div class="info2">
-
-                        <div class="basic-info">
-                            <span class="label">HP</span>
-                            <h2>{{card.hp}}</h2>
-                        </div>
+                        @if (card.hp) {
+                            <div class="basic-info">
+                                <span class="label">HP</span>
+                                <h2>{{card.hp}}</h2>
+                            </div>
+                        }
                         <div class="basic-info">
                             <span class="label">set</span>
                             <h2>{{card.set.name}}</h2>
