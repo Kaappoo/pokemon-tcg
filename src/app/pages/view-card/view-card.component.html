@@ -3,16 +3,16 @@
 
         <div class="first-session">
             <div class="image">
-                <img [src]="card.images.large" alt="">
+                <img [src]="card?.images?.large" alt="">
                 <div class="rules">
-                    @for (rule of card.rules; track $index) {
+                    @for (rule of card?.rules; track $index) {
                         <div class="rule">
                             <span> {{rule}} </span>
                         </div>
                     }
-                    @if(card.flavorText){
+                    @if(card?.flavorText){
                         <div class="flavor-text">
-                            {{card.flavorText}}
+                            {{card?.flavorText}}
                         </div>
                     }
                 </div>
@@ -22,25 +22,25 @@
                     <div class="info1">
                         <div class="basic-info">
                             <span class="label">name</span>
-                            <h2>{{card.name}}</h2>
+                            <h2>{{card?.name}}</h2>
                         </div>
-                        @if (card.types) {
+                        @if (card?.types) {
 
                             <div class="basic-info">
                                 <span class="label">type</span>
-                                <h2>{{card.types[0]}}</h2>
-                                @if (card.types[1]) {
-                                    & {{card.types[1]}}
+                                <h2>{{card?.types[0]}}</h2>
+                                @if (card?.types[1]) {
+                                    & {{card?.types[1]}}
                                 }
                             </div>
                             <div class="basic-info">
                                 <span class="label">stage</span>
-                                <h2>{{card.subtypes[0]}}</h2>
+                                <h2>{{card?.subtypes[0]}}</h2>
                             </div>
-                            @if(card.subtypes[1]){
+                            @if(card?.subtypes[1]){
                                 <div class="basic-info">
                                     <span class="label">subtypes</span>
-                                    @for (subtype of card.subtypes; track $index) {
+                                    @for (subtype of card?.subtypes; track $index) {
                                         @if($index != 0){
                                             <h2>{{subtype}}</h2>
                                         }
@@ -50,20 +50,20 @@
                         }
                     </div>
                     <div class="info2">
-                        @if (card.hp) {
+                        @if (card?.hp) {
                             <div class="basic-info">
                                 <span class="label">HP</span>
-                                <h2>{{card.hp}}</h2>
+                                <h2>{{card?.hp}}</h2>
                             </div>
                         }
                         <div class="basic-info">
                             <span class="label">set</span>
-                            <h2>{{card.set.name}}</h2>
+                            <h2>{{card?.set?.name}}</h2>
                         </div>
-                        @if(card.evolvesFrom){
+                        @if(card?.evolvesFrom){
                             <div class="basic-info">
                                 <span class="label">evolves from</span>
-                                <h2>{{card.evolvesFrom}}</h2>
+                                <h2>{{card?.evolvesFrom}}</h2>
                             </div>
                         }
                     </div>
@@ -71,13 +71,13 @@
     
                 <div class="attacks">
                     <h2>ABILITIES AND ATTACKS</h2>
-                    @for (ability of card.abilities; track $index) {
+                    @for (ability of card?.abilities; track $index) {
                         <div class="ability">
                             <h2> <b>{{ability.type}}</b> {{ability.name}}</h2>
                             <span> {{ability.text}} </span>
                         </div>
                     }
-                    @for (attack of card.attacks; track $index) {
+                    @for (attack of card?.attacks; track $index) {
                     <div class="ability">
                             <div class="attack-title">
                                 @for (cost of attack.cost; track $index) {
@@ -97,7 +97,7 @@
                 <div class="info-row weakness">
                     <div class="basic-info weakness">
                         <span class="label">weaknesses</span>
-                        @for (weakness of card.weaknesses ; track $index) {
+                        @for (weakness of card?.weaknesses ; track $index) {
                             <div [class]="'energy-icons ' + weakness.type"></div>
                             {{weakness.value}}
                         } @empty {
@@ -106,7 +106,7 @@
                     </div>
                     <div class="basic-info weakness">
                         <span class="label">resistances</span>
-                        @for (resistance of card.resistances ; track $index) {
+                        @for (resistance of card?.resistances ; track $index) {
                             <div [class]="'energy-icons ' + resistance.type"></div>
                             {{resistance.value}}
                         }   @empty {
@@ -115,7 +115,7 @@
                     </div>
                     <div class="basic-info weakness">
                         <span class="label">retreat cost</span>
-                        @for (retreatCost of card.retreatCost ; track $index) {
+                        @for (retreatCost of card?.retreatCost ; track $index) {
                             <div [class]="'energy-icons ' + retreatCost"></div>
                         }   @empty {
                             none
@@ -125,21 +125,21 @@
                 <div class="info-row weakness">
                     <div class="basic-info">
                         <span class="label">number</span>
-                        <span>{{card.number}}</span>
+                        <span>{{card?.number}}</span>
                     </div>
                     <div class="basic-info">
                         <span class="label">rarity</span>
-                        <span>{{card.rarity}}</span>
+                        <span>{{card?.rarity}}</span>
                     </div>
                     <div class="basic-info">
                         <span class="label">regulation mark</span>
-                        <span>{{card.regulationMark}}</span>
+                        <span>{{card?.regulationMark}}</span>
                     </div>
                 </div>
                 <div class="prices">
                     <div class="prices-title">
                         <h2>Prices</h2>
-                        <span>offered by <a [href]="card.tcgplayer.url" target="_blank" rel="noopener noreferrer">tcgplayer</a>. Prices are in dollars.</span>
+                        <span>offered by <a [href]="card?.tcgplayer?.url" target="_blank" rel="noopener noreferrer">tcgplayer</a>. Prices are in dollars.</span>
                     </div>
                     <p-table [value]="pricesTCG" [tableStyle]="{ 'min-width': '50rem' }">
                         <ng-template pTemplate="header">
@@ -151,13 +151,13 @@
                         <ng-template pTemplate="body" let-card let-index="rowIndex">
                             <tr>
                                 <td>{{ pricesKeysTCG[index] }}</td>
-                                <td>{{ card.market }}</td>
+                                <td>{{ card?.market }}</td>
                             </tr>
                         </ng-template>
                     </p-table>
                     <div class="prices-title">
                         <h2>Prices</h2>
-                        <span>offered by <a [href]="card.cardmarket.url" target="_blank" rel="noopener noreferrer">cardmarket</a>. Prices are in euros.</span>
+                        <span>offered by <a [href]="card?.cardmarket?.url" target="_blank" rel="noopener noreferrer">cardmarket</a>. Prices are in euros.</span>
                     </div>
                     <p-table [value]="pricesCM" [tableStyle]="{ 'min-width': '50rem' }">
                         <ng-template pTemplate="header">
